@@ -31,6 +31,9 @@ android {
         jvmTarget = '1.8'
     }
 }
+androidExtensions {
+    experimental = true
+}
 
 dependencies {
 
@@ -48,5 +51,9 @@ dependencies {
     implementation 'ru.nobird.android.ui:AdapterDelegates:1.0.1'
     implementation 'ru.nobird.android.ui:Adapters:1.0.1'
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.0'
+
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0'
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.0'
 }

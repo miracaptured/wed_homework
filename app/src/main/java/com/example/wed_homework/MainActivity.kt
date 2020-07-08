@@ -2,23 +2,24 @@ package com.example.wed_homework
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateLayoutContainer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_skills.*
 
-
 class MainActivity : AppCompatActivity() {
-
+    var skills: ArrayList<Skill> =
+        arrayListOf(
+            Skill("Kotlin", "< 1 year"),
+            Skill("Java", "< 1 year"),
+            Skill("Pascal", "5 years"),
+            Skill("HTML", "3 years"),
+            Skill("Figma", ">1 year")
+        )
+    private var skillsAdapter = ListDelegationAdapter(skillsAdapterDelegate())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,18 @@ class MainActivity : AppCompatActivity() {
             openURL.data = Uri.parse("https://github.com/miracaptured")
             startActivityForResult(openURL, 1)
         }
-    }}
+        skillsAdapter.items = skills
+        with(skillsContainer) {
+            adapter = skillsAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
 
-
-
+    private fun skillsAdapterDelegate() =
+        adapterDelegateLayoutContainer<Skill, Skill>(R.layout.item_skills) {
+            bind {
+                skillName.text = item.name
+                exp.text = item.exp
+            }
+        }
+}
