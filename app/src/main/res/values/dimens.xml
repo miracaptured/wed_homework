@@ -9,5 +9,4 @@
 
     <dimen name="buttonTextSize">14sp</dimen>
     <dimen name="skillNameSize">12sp</dimen>
-    <dimen name="skillExpSize">14sp</dimen>
 </resources>

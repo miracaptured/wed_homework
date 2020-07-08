@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:allowBackup="true"
-    android:background="@android:drawable/editbox_dropdown_light_frame"
+    android:background="@android:drawable/editbox_background"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
