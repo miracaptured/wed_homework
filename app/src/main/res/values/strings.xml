@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My homework</string>
+    <string name="first_header">Навыки</string>
+    <string name="github">Github</string>
+    <string name="grad">Абитуриентка</string>
+    <string name="nick">Владимира Владимировна</string>
+    <string name="project_idea_header">Идея проекта</string>
+    <string name="project_idea_text"> О-о-о,щикарный проект наварили.</string>
+    <string name="ava_desc">Аватарка</string>
+    <string name="about">О себе</string>
+
+    <string-array name="skills_list">
+        <item>Kotlin</item>
+        <item>Java</item>
+        <item>C#</item>
+        <item>Pascal</item>
+        <item>HTML</item>
+        <item>Figma</item>
+
+
+    </string-array>
+</resources>

@@ -1,0 +1,2 @@
+rootProject.name = "wed_homework"
+include ':app'
