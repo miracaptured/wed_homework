@@ -1,8 +1,10 @@
 package com.example.wed_homework
 
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -35,7 +37,16 @@ class MainActivity : AppCompatActivity() {
             adapter = skillsAdapter
             layoutManager = LinearLayoutManager(context)
         }
+
+
+        buttonF.setOnClickListener(){ val intent = Intent(this, Filter_Activity::class.java)
+            startActivity(intent)
+
+        }
     }
+
+
+
 
     private fun skillsAdapterDelegate() =
         adapterDelegateLayoutContainer<Skill, Skill>(R.layout.item_skills) {
@@ -44,4 +55,8 @@ class MainActivity : AppCompatActivity() {
                 exp.text = item.exp
             }
         }
-}
+
+
+
+    }
+
