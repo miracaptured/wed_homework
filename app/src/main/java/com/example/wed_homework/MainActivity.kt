@@ -4,7 +4,7 @@ package com.example.wed_homework
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -14,18 +14,27 @@ import kotlinx.android.synthetic.main.item_skills.*
 
 class MainActivity : AppCompatActivity() {
     var skills: ArrayList<Skill> =
-        arrayListOf(
-            Skill("Kotlin", "< 1 year"),
-            Skill("Java", "< 1 year"),
-            Skill("Pascal", "5 years"),
-            Skill("HTML", "3 years"),
-            Skill("Figma", ">1 year")
-        )
+            arrayListOf(
+                    Skill("Kotlin", 0.2),
+                    Skill("Java", 0.2),
+                    Skill("Pascal", 5.0),
+                    Skill("HTML", 3.0),
+                    Skill("Figma", 1.0),
+                    Skill("Фотография", 5.0),
+                    Skill("Черный юмор", 6.0),
+                    Skill("Цитирование Маяковского", 5.0),
+                    Skill("Семь бед..один ответ", 1.0),
+                    Skill("Мама, я прокрастинатор", 11.0),
+                    Skill("Ночной дожор в стиле ниндзя", 3.0 )
+            )
     private var skillsAdapter = ListDelegationAdapter(skillsAdapterDelegate())
+
+    private var filter = skills.map { it.exp.toInt() }.toIntArray()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         toGithub.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
@@ -39,24 +48,20 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        buttonF.setOnClickListener(){ val intent = Intent(this, Filter_Activity::class.java)
+        buttonF.setOnClickListener() {
+            val intent = Intent(this, Filter_Activity::class.java)
+            intent.putExtra("my years", filter)
             startActivity(intent)
 
         }
     }
 
 
-
-
     private fun skillsAdapterDelegate() =
-        adapterDelegateLayoutContainer<Skill, Skill>(R.layout.item_skills) {
-            bind {
-                skillName.text = item.name
-                exp.text = item.exp
+            adapterDelegateLayoutContainer<Skill, Skill>(R.layout.item_skills) {
+                bind {
+                    skillName.text = item.name
+                    exp.text = item.exp.toString() + " years"
+                }
             }
-        }
-
-
-
-    }
-
+}

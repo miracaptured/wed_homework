@@ -185,7 +185,6 @@
             android:layout_height="29dp"
             android:background="#FFFFFF"
             android:drawableBottom="@drawable/filter_alt_black_18dp"
-            android:onClick="startFilter"
             android:text="@string/fillter" />
 
         <TextView
