@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/check_all"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="@string/checkbox" />

@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateLayoutContainer
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_filter.*
 import kotlinx.android.synthetic.main.item_skills.*
 
 class MainActivity : AppCompatActivity() {
     var skills: ArrayList<Skill> =
             arrayListOf(
                     Skill("Kotlin", 0.2),
-                    Skill("Java", 0.2),
+                    Skill("Java", 0.1),
                     Skill("Pascal", 5.0),
                     Skill("HTML", 3.0),
                     Skill("Figma", 1.0),
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity() {
             adapterDelegateLayoutContainer<Skill, Skill>(R.layout.item_skills) {
                 bind {
                     skillName.text = item.name
-                    exp.text = item.exp.toString() + " years"
+                    if (item.exp < 1.0) {  exp.text = " <1 year"} else {
+                    exp.text = " " + item.exp.toString() + " years"}
                 }
             }
 }
